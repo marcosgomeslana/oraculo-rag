@@ -1,2 +1,0 @@
-Comando para iniciar o rodar o programa: 
-.\.venv\Scripts\python.exe -m streamlit run oracle.py
