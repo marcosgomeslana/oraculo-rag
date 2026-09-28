@@ -1,36 +1,54 @@
-<small>**🗺️ O Plano de Construção (Dividido em Partes)**</small>
+# Oráculo IA
 
-Fase 1: Estruturação do Projeto e Instalação de Dependências (Onde estamos agora).
+Aplicação de Inteligência Artificial desenvolvida em **Python** para consulta de documentos PDF utilizando **RAG (Retrieval-Augmented Generation)**.
 
-Fase 2: Criação da Base de Dados Simulada (O arquivo Excel de Jurimetria e a pasta de PDFs).
+O sistema processa documentos jurídicos, cria uma base de conhecimento vetorial e permite realizar perguntas sobre seu conteúdo. As respostas são geradas a partir dos trechos relevantes recuperados dos documentos.
 
-Fase 3: Construção do "Esqueleto" da Interface no Streamlit (Criando as abas/páginas).
+## Tecnologias
 
-Fase 4: Desenvolvimento do Dashboard de Jurimetria (Gráficos interativos com o Excel).
+* Python
+* Streamlit
+* LangChain
+* Groq
+* Llama 3.1
+* Hugging Face Embeddings
+* FAISS
+* RAG
+* PyPDF
 
-Fase 5: Integração do Oráculo Jurídico (O chatbot RAG com Groq que já validamos).
+## Como funciona
 
-Fase 6: Testes, Ajustes de Prompt e Ajustes Finais.
+1. Os documentos PDF são adicionados à pasta `documentos_juridicos`.
+2. O sistema processa e divide os documentos em trechos.
+3. Os conteúdos são transformados em embeddings e armazenados no FAISS.
+4. O sistema recupera os trechos relevantes para cada pergunta.
+5. O modelo Llama 3.1 gera a resposta com base no contexto recuperado.
 
+## Execução
 
-<small>**Protótipo da Tela - WireFrame de Alta finalidade básico**</small>
+Instale as dependências:
 
+```bash
+pip install -r requirements.txt
+```
 
-<img width="1408" height="768" alt="tela-lexmetrics" src="https://github.com/user-attachments/assets/8278b902-3345-4659-9662-ef7e907f1b4d" />
+Configure sua chave da Groq no arquivo `.env`:
 
-##### Descrição
-Dashboard de Jurimetria (Painel Superior): Esta seção apresenta as métricas que você planeja extrair do PostgreSQL. Ela é focada em dados estruturados:
+```env
+GROQ_API_KEY=sua_chave_aqui
+```
 
-      Gráficos e Estatísticas: Inclui gráficos de barra ("Taxas de Condenação por Juiz", "Tempo Médio de Julgamento"), gráficos de rosca ("Distribuição de Sentenças") e tabelas ("Valor Médio de Condenações").
+Execute a aplicação:
 
-      Filtros de Pesquisa: Localizados no canto superior direito, permitem refinar os dados por tribunal, ano, classe processual e origem (DataJud).
+```bash
+.\.venv\Scripts\python.exe -m streamlit run oracle.py
+```
 
-Oráculo (Painel Inferior): Esta seção é o chatbot que você está construindo, focada em dados não estruturados (o conteúdo dos PDFs):
+## Status
 
-      Interface de Chat: Mostra o fluxo da conversa, incluindo a sua pergunta ("Olá Oráculo..."), a resposta gerada pela IA e as referências diretas aos documentos jurídicos (documentos.juridicos).
+Projeto em desenvolvimento.
 
-      Status e Tecnologias: Indica que o sistema utiliza a nuvem (RAG Cloud) e exibe os estados das conexões (DataJud, Elasticsearch e Groq) no canto inferior direito.
+## Autor
 
-Navegação Lateral: O menu à esquerda facilita a alternância entre as diferentes áreas do sistema (Dashboard, Jurimetria, Oráculo, etc.).
-
-
+**Marcos Gomes de Oliveira Lana**
+Estudante de Análise e Desenvolvimento de Sistemas.
